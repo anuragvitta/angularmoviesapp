@@ -1,0 +1,44 @@
+<form (ngSubmit)="show(s.value)" #s="ngForm" name="form" novalidate style="width:500px;">
+  <div class="form-group" [ngClass]="{'has-error':(idv.touched||idv.dirty)&&!idv.valid}">
+    <label for="id">Id</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" name="id" placeholder="Enter id"  [(ngModel)]="movie.id"
+      #idv="ngModel"required />
+      <span class="help-block" *ngIf="idv.touched && !idv.valid">
+          <span *ngIf="(idv.errors.required)">
+            this field is required
+          </span>
+        </span>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!s.valid">Submit</button>
+</form>
+<div *ngIf="movies">
+  <div class="card a" style="width: 50rem" >
+      <div class="card-body" style="background-color:#ffffff;">
+    <div style="padding:20px;">
+        <h2 align="center">movie Details</h2>
+        <br/>
+        <table class="table" align="center">
+            <tbody>
+    
+              <tr>
+                  <td>Name</td>
+                  <td>{{movies.Name}}</td>
+                </tr>
+                <tr>
+                    <td>Release_date</td>
+                    <td>{{movies.Release_Date}}</td>
+                  </tr>
+                  <tr>
+                      <td> Rating</td>
+                      <td>{{movies.Rating}}</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>{{movies.Language}}</td>
+                      </tr>
+            </tbody>
+          </table>
+    
+    </div>
+    </div>
+  </div>

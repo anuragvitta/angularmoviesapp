@@ -1,0 +1,66 @@
+<form (ngSubmit)="show(s.value)" #s="ngForm" name="form" novalidate style="width:500px;">
+    <div class="form-group" [ngClass]="{'has-error':(idv.touched||idv.dirty)&&!idv.valid}">
+        <label for="id">Id</label>
+        <input type="number" class="form-control" id="exampleInputEmail1" name="id" placeholder="Enter id"  [(ngModel)]="movie.id"
+          #idv="ngModel"required />
+          <span class="help-block" *ngIf="idv.touched && !idv.valid">
+              <span *ngIf="(idv.errors.required)">
+                this field is required
+              </span>
+            </span>
+      </div>
+  <div class="form-group" [ngClass]="{'has-error':(FirstNamev.touched||FirstNamev.dirty)&&!FirstNamev.valid}">
+    <label for="Name">Name:</label>
+    <input type="text" class="form-control" id="fname" name="Name" placeholder="Enter name"  minlength="3" [(ngModel)]="movie.Name"
+      #FirstNamev="ngModel" required/>
+      <span class="help-block" *ngIf="FirstNamev.touched && !FirstNamev.valid">
+          <span *ngIf="(FirstNamev.errors.required)">
+            this field is required
+          </span>
+          <span *ngIf="(FirstNamev.errors.minlength)">
+            this field is shoud be more than 3 characters
+          </span>
+        </span>
+  </div>
+  
+
+  <div class="form-group" [ngClass]="{'has-error':(LastNameV.touched||LastNameV.dirty)&&!LastNameV.valid}">
+    <label for="Release_Date">Release_Date:</label>
+    <input type="text" class="form-control" id="lname" name="Release_Date" placeholder="Enter Release_Date" [(ngModel)]="movie.Release_Date"
+      #LastNameV="ngModel" required/>
+      <span class="help-block" *ngIf="LastNameV.touched && !LastNameV.valid">
+          <span *ngIf="(LastNameV.errors.required)">
+            this field is required
+          </span>
+        </span>
+  </div>
+  
+  
+    <div class="form-group" [ngClass]="{'has-error':(Emailv.touched||Emailv.dirty)&&!Emailv.valid}">
+      <label for="Rating">Rating</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" name="Rating" placeholder="Enter age"  [(ngModel)]="movie.Rating"
+        #Emailv="ngModel"required />
+        <span class="help-block" *ngIf="Emailv.touched && !Emailv.valid">
+            <span *ngIf="(Emailv.errors.required)">
+              this field is required
+            </span>
+          </span>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':(LastNameV.touched||LastNameV.dirty)&&!LastNameV.valid}">
+      <label for="Language">Language:</label>
+      <input type="text" class="form-control" id="lang" name="Language" placeholder="Enter Language" [(ngModel)]="movie.Language"
+        #LastNameV="ngModel" required/>
+        <span class="help-block" *ngIf="LastNameV.touched && !LastNameV.valid">
+            <span *ngIf="(LastNameV.errors.required)">
+              this field is required
+            </span>
+          </span>
+    </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!s.valid">Submit</button>
+ 
+    
+</form>
+<!----<br>{{s.touched}}
+<br>{{s.dirty}}
+<br>{{s.valid}}
+<br>{{s.value|json}}-->
